@@ -59,7 +59,13 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        //
+        $status=$category->update($request->all());
+        if ($status) {
+            return to_route('categories.index');
+
+        }else{
+            return to_route('categories.update');
+        }
     }
 
     /**
