@@ -64,7 +64,7 @@ class CategoryController extends Controller
             return to_route('categories.index');
 
         }else{
-            return to_route('categories.update');
+            return to_route('categories.edit', $category);
         }
     }
 

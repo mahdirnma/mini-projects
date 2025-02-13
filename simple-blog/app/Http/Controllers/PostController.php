@@ -62,7 +62,13 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, Post $post)
     {
-        //
+        $status=$post->update($request->all());
+        if($status){
+            return to_route('posts.index');
+
+        }else{
+            return to_route('posts.edit', compact('post'));
+        }
     }
 
     /**
