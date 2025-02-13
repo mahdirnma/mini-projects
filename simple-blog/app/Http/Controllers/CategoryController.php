@@ -30,7 +30,12 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-        //
+        $category = Category::create($request->all());
+        if ($category) {
+            return to_route('categories.index');
+        }else{
+            return to_route('categories.create');
+        }
     }
 
     /**
