@@ -29,7 +29,7 @@
                         <input type="submit" value="Add" class="absolute bottom-2 -left-10 text-white bg-gray-700 py-3 px-7 cursor-pointer rounded">
                     </div>
                     <div class="w-1/2 h-full flex flex-col items-end pr-20">
-                        <select name="category" id="category" class="w-2/5 h-8 rounded outline-0 px-2 border border-gray-400">
+                        <select name="category_id" id="category" class="w-2/5 h-8 rounded outline-0 px-2 border border-gray-400">
                             @foreach($categories as $category)
                                 <option value="{{$category->id}}">{{$category->title}}</option>
                             @endforeach
