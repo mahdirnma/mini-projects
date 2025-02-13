@@ -35,4 +35,8 @@ class AuthController extends Controller
             return to_route('register.form');
         }
     }
+    public function logout(){
+        Auth::logout();
+        return to_route('login.form');
+    }
 }
