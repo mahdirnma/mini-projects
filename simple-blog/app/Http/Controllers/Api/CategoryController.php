@@ -27,6 +27,7 @@ class CategoryController extends Controller
     {
         $category=Category::create($request->all());
         return response()->json([
+            'message'=>'Category created successfully',
             'data' => $category,
         ]);
     }
@@ -44,7 +45,11 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $category->update($request->all());
+        return response()->json([
+            'message'=>'Category updated successfully',
+            'data' => $category,
+        ]);
     }
 
     /**
