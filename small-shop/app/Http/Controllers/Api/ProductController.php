@@ -33,7 +33,7 @@ class ProductController extends ApiController
      */
     public function show(Product $product)
     {
-        //
+        return $this->response(new ProductApiResource($product),'Product retrieved successfully.');
     }
 
     /**
