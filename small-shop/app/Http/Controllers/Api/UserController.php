@@ -27,7 +27,8 @@ class UserController extends ApiController
     public function store(StoreUserRequest $request)
     {
         $user=User::create($request->all());
-        return $this->response(new UserApiResource($user), 201);
+//        return $this->response($user, 'user added successfully',201);
+        return $this->response(new UserApiResource($user), 'user added successfully',201);
     }
 
     /**
@@ -35,7 +36,7 @@ class UserController extends ApiController
      */
     public function show(User $user)
     {
-        return $this->response(new UserApiResource($user), 200);
+        return $this->response(new UserApiResource($user), 'show user successfully');
     }
 
     /**
@@ -47,7 +48,7 @@ class UserController extends ApiController
             'name'=>$request->name,
             'email'=>$request->email,
         ]);
-        return $this->response(new UserApiResource($user), 200);
+        return $this->response(new UserApiResource($user), 'user updated successfully');
     }
 
     /**
@@ -55,6 +56,7 @@ class UserController extends ApiController
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+        return $this->response(null, 'user deleted successfully');
     }
 }

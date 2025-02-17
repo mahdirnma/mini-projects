@@ -11,6 +11,6 @@ class ApiController extends Controller
         $body=[];
         $message!='' && $body['message']=$message;
         $data!='' && $body['data']=$data;
-        return response()->json($data, $status);
+        return response()->json($body, $status);
     }
 }
