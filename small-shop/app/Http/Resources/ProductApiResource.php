@@ -18,6 +18,7 @@ class ProductApiResource extends JsonResource
             'id'=>$this->id,
             'title'=>$this->title,
             'description'=>$this->description,
+            'price'=>number_format($this->price),
             'category'=>$this->category->title,
             'user'=>$this->user->name,
         ];
