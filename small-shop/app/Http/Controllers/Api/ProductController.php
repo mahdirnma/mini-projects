@@ -51,6 +51,7 @@ class ProductController extends ApiController
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return $this->response(null,'Product deleted successfully.');
     }
 }
