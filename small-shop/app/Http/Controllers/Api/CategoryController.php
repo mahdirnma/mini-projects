@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\CategoryRequest;
 use App\Http\Resources\CategoryApiResource;
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CategoryController extends ApiController
@@ -21,9 +23,10 @@ class CategoryController extends ApiController
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
-        //
+        $category=Category::create($request->all());
+        return $this->response(new CategoryApiResource($category),'Category created successfully',201);
     }
 
     /**
