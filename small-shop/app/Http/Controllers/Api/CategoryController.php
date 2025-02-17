@@ -34,15 +34,16 @@ class CategoryController extends ApiController
      */
     public function show(Category $category)
     {
-        //
+        return $this->response(new CategoryApiResource($category),'Category retrieved successfully');
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Category $category)
+    public function update(CategoryRequest $request, Category $category)
     {
-        //
+        $category->update($request->all());
+        return $this->response(new CategoryApiResource($category),'Category updated successfully',200);
     }
 
     /**
