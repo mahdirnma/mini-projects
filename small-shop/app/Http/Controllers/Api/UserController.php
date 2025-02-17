@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\StoreUserRequest;
 use App\Http\Resources\UserApiResource;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -22,9 +23,10 @@ class UserController extends ApiController
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
-        //
+        $user=User::create($request->all());
+        return $this->response(new UserApiResource($user), 201);
     }
 
     /**
