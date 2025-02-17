@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\StoreUserRequest;
+use App\Http\Requests\Api\UpdateUserRequest;
 use App\Http\Resources\UserApiResource;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -40,9 +41,13 @@ class UserController extends ApiController
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(UpdateUserRequest $request, User $user)
     {
-        //
+        $user->update([
+            'name'=>$request->name,
+            'email'=>$request->email,
+        ]);
+        return $this->response(new UserApiResource($user), 200);
     }
 
     /**
